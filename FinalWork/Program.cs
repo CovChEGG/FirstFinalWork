@@ -20,3 +20,16 @@ void PrintArrayOfStrings(string[] arrayOfStrings)
     }
     Console.Write("]");
 }
+
+int CalcNumberOfStringsWithSizeLessOrEqual3(string[] arrayOfStrings)
+{
+    numberOfStrings = 0;
+    for (int i = 0; i < stringArray.Length; i++)
+    {
+        if (stringArray[i].Length <= 3)
+        {
+            numberOfStrings++;
+        }
+    }
+    return numberOfStrings;
+}
