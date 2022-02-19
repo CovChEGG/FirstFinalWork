@@ -21,15 +21,31 @@ void PrintArrayOfStrings(string[] arrayOfStrings)
     Console.Write("]");
 }
 
-int CalcNumberOfStringsWithSizeLessOrEqualNeeded(string[] arrayOfStrings, int sizeOfString)
+int CalcStringsNumberWithSizeLessOrEqualNeeded(string[] arrayOfStrings, int sizeOfString)
 {
-    numberOfStrings = 0;
-    for (int i = 0; i < stringArray.Length; i++)
+    int numberOfStrings = 0;
+    for (int i = 0; i < arrayOfStrings.Length; i++)
     {
-        if (stringArray[i].Length <= sizeOfString)
+        if (arrayOfStrings[i].Length <= sizeOfString)
         {
             numberOfStrings++;
         }
     }
     return numberOfStrings;
+}
+
+string[] CopyToNewStringsArrayWithSizeLessOrEqualNeeded(string[] arrayOfStrings, int neededSizeOfString)
+{
+    int sizeOfNewArray = CalcStringsNumberWithSizeLessOrEqualNeeded(arrayOfStrings, neededSizeOfString);
+    string[] newArrayOfStrings = new string[sizeOfNewArray];
+    int j = 0;
+    foreach (var currentString in arrayOfStrings)
+    {
+        if (currentString.Length <= neededSizeOfString)
+        {
+            newArrayOfStrings[j] = currentString;
+            j++;
+        }
+    }
+    return newArrayOfStrings;
 }
