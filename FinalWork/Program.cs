@@ -21,6 +21,14 @@ void PrintArrayOfStrings(string[] arrayOfStrings)
     Console.Write("]");
 }
 
+void PrintTwoArraysOfStrings(string[] arrayOfStrings, string[] newArrayOfStrings)
+{
+    PrintArrayOfStrings(arrayOfStrings);
+    Console.Write(" -> ");
+    PrintArrayOfStrings(newArrayOfStrings);
+    Console.WriteLine();
+}
+
 int CalcStringsNumberWithSizeLessOrEqualNeeded(string[] arrayOfStrings, int sizeOfString)
 {
     int numberOfStrings = 0;
@@ -49,3 +57,4 @@ string[] CopyToNewStringsArrayWithSizeLessOrEqualNeeded(string[] arrayOfStrings,
     }
     return newArrayOfStrings;
 }
+
