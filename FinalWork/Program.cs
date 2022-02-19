@@ -21,12 +21,12 @@ void PrintArrayOfStrings(string[] arrayOfStrings)
     Console.Write("]");
 }
 
-int CalcNumberOfStringsWithSizeLessOrEqual3(string[] arrayOfStrings)
+int CalcNumberOfStringsWithSizeLessOrEqualNeeded(string[] arrayOfStrings, int sizeOfString)
 {
     numberOfStrings = 0;
     for (int i = 0; i < stringArray.Length; i++)
     {
-        if (stringArray[i].Length <= 3)
+        if (stringArray[i].Length <= sizeOfString)
         {
             numberOfStrings++;
         }
