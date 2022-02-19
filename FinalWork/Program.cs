@@ -29,7 +29,7 @@ void PrintTwoArraysOfStrings(string[] arrayOfStrings, string[] newArrayOfStrings
     Console.WriteLine();
 }
 
-int CalcStringsNumberWithSizeLessOrEqualNeeded(string[] arrayOfStrings, int sizeOfString)
+int CalcStringsNumberWithSizeEqualOrLessNeeded(string[] arrayOfStrings, int sizeOfString)
 {
     int numberOfStrings = 0;
     for (int i = 0; i < arrayOfStrings.Length; i++)
@@ -42,9 +42,9 @@ int CalcStringsNumberWithSizeLessOrEqualNeeded(string[] arrayOfStrings, int size
     return numberOfStrings;
 }
 
-string[] CopyToNewStringsArrayWithSizeLessOrEqualNeeded(string[] arrayOfStrings, int neededSizeOfString)
+string[] CopyToNewStringsArrayWithSizeEqualOrLessNeeded(string[] arrayOfStrings, int neededSizeOfString)
 {
-    int sizeOfNewArray = CalcStringsNumberWithSizeLessOrEqualNeeded(arrayOfStrings, neededSizeOfString);
+    int sizeOfNewArray = CalcStringsNumberWithSizeEqualOrLessNeeded(arrayOfStrings, neededSizeOfString);
     string[] newArrayOfStrings = new string[sizeOfNewArray];
     int j = 0;
     foreach (var currentString in arrayOfStrings)
@@ -58,3 +58,11 @@ string[] CopyToNewStringsArrayWithSizeLessOrEqualNeeded(string[] arrayOfStrings,
     return newArrayOfStrings;
 }
 
+Console.Clear();
+
+string[] arrayOfStrings = {"Russia", "Denmark", "Kazan"};
+int stringSizeEqualOrLessToSearch = 3;
+string[] newArrayOfStrings = CopyToNewStringsArrayWithSizeEqualOrLessNeeded(arrayOfStrings, stringSizeEqualOrLessToSearch);
+PrintTwoArraysOfStrings(arrayOfStrings, newArrayOfStrings);
+
+Console.WriteLine();
