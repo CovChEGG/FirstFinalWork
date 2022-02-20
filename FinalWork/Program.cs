@@ -1,19 +1,10 @@
-﻿// **Задача**: Написать программу, которая из имеющегося массива строк формирует массив из строк,
-// длина которых меньше либо равна 3 символа. Первоначальный массив можно ввести с клавиатуры,
-// либо задать на старте выполнения алгоритма. При решении не рекомендуется пользоваться коллекциями,
-// лучше обойтись исключительно массивами.
-// **Примеры**:
-// ["hello", "2", "world", ":-)"] -> ["2", ":-)"]
-// ["1234", "1567", "-2", "computer science"] -> ["-2"]
-// ["Russia", "Denmark", "Kazan"] -> []
-
-void PrintArrayOfStrings(string[] arrayOfStrings)
+﻿void PrintStringsArray(string[] stringsArray)
 {
     Console.Write("[");
-    for (int i = 0; i < arrayOfStrings.Length; i++)
+    for (int i = 0; i < stringsArray.Length; i++)
     {
-        Console.Write($"\"{arrayOfStrings[i]}\"");
-        if (i != arrayOfStrings.Length - 1)
+        Console.Write($"\"{stringsArray[i]}\"");
+        if (i != stringsArray.Length - 1)
         {
             Console.Write(", ");
         }
@@ -21,11 +12,11 @@ void PrintArrayOfStrings(string[] arrayOfStrings)
     Console.Write("]");
 }
 
-void PrintTwoArraysOfStrings(string[] arrayOfStrings, string[] newArrayOfStrings)
+void PrintTwoStringsArray(string[] initialStringsArray, string[] resultStringsArray)
 {
-    PrintArrayOfStrings(arrayOfStrings);
+    PrintStringsArray(initialStringsArray);
     Console.Write(" -> ");
-    PrintArrayOfStrings(newArrayOfStrings);
+    PrintStringsArray(resultStringsArray);
     Console.WriteLine();
 }
 
@@ -60,9 +51,11 @@ string[] CopyToNewStringsArrayWithSizeEqualOrLessNeeded(string[] arrayOfStrings,
 
 Console.Clear();
 
-string[] arrayOfStrings = {"Russia", "Denmark", "Kazan"};
-int stringSizeEqualOrLessToSearch = 3;
-string[] newArrayOfStrings = CopyToNewStringsArrayWithSizeEqualOrLessNeeded(arrayOfStrings, stringSizeEqualOrLessToSearch);
-PrintTwoArraysOfStrings(arrayOfStrings, newArrayOfStrings);
+string[] initialStringsArray = {"hello", "2", "world", ":-)"}; // Sample 1 for testing
+// string[] initialStringsArray = {"1234", "1567", "-2", "computer science"}; // Sample 2 for testing
+// string[] initialStringsArray = {"Russia", "Denmark", "Kazan"}; // Sample 3 for testing
+int stringSizeParam = 3;
+string[] resultStringsArray = CopyToNewStringsArrayWithSizeEqualOrLessNeeded(initialStringsArray, stringSizeParam);
+PrintTwoStringsArray(initialStringsArray, resultStringsArray);
 
 Console.WriteLine();

@@ -6,7 +6,7 @@
     return stringArray;
 }
 
-void PrintArrayOfStrings(string[] arrayOfStrings)
+void PrintStringsArray(string[] arrayOfStrings)
 {
     Console.Write("[");
     for (int i = 0; i < arrayOfStrings.Length; i++)
@@ -20,20 +20,20 @@ void PrintArrayOfStrings(string[] arrayOfStrings)
     Console.Write("]");
 }
 
-void PrintTwoArraysOfStrings(string[] arrayOfStrings, string[] newArrayOfStrings)
+void PrintTwoArraysOfStrings(string[] initialStringsArray, string[] resultStringsArray)
 {
-    PrintArrayOfStrings(arrayOfStrings);
+    PrintStringsArray(initialStringsArray);
     Console.Write(" -> ");
-    PrintArrayOfStrings(newArrayOfStrings);
+    PrintStringsArray(resultStringsArray);
     Console.WriteLine();
 }
 
-int CalcStringsNumberWithSizeEqualOrLessNeeded(string[] arrayOfStrings, int sizeOfString)
+int CalcStringsNumberWithSizeEqualOrLessNeeded(string[] stringsArray, int stringSize)
 {
     int numberOfStrings = 0;
-    for (int i = 0; i < arrayOfStrings.Length; i++)
+    for (int i = 0; i < stringsArray.Length; i++)
     {
-        if (arrayOfStrings[i].Length <= sizeOfString)
+        if (stringsArray[i].Length <= stringSize)
         {
             numberOfStrings++;
         }
@@ -41,29 +41,29 @@ int CalcStringsNumberWithSizeEqualOrLessNeeded(string[] arrayOfStrings, int size
     return numberOfStrings;
 }
 
-string[] CopyToNewStringsArrayWithSizeEqualOrLessNeeded(string[] arrayOfStrings, int neededSizeOfString)
+string[] CopyToNewArrayStringsWithSizeEqualOrLessNeeded(string[] stringsArray, int stringSize)
 {
-    int sizeOfNewArray = CalcStringsNumberWithSizeEqualOrLessNeeded(arrayOfStrings, neededSizeOfString);
-    string[] newArrayOfStrings = new string[sizeOfNewArray];
+    int sizeOfNewArray = CalcStringsNumberWithSizeEqualOrLessNeeded(stringsArray, stringSize);
+    string[] newStringsArray = new string[sizeOfNewArray];
     int j = 0;
-    foreach (var currentString in arrayOfStrings)
+    foreach (var currentString in stringsArray)
     {
-        if (currentString.Length <= neededSizeOfString)
+        if (currentString.Length <= stringSize)
         {
-            newArrayOfStrings[j] = currentString;
+            newStringsArray[j] = currentString;
             j++;
         }
     }
-    return newArrayOfStrings;
+    return newStringsArray;
 }
 
 Console.Clear();
 
 Console.WriteLine("Input words through spaces for analizing text:");
 char[] separators = {' '};
-string[] stringArray = InputStringFromConsole(separators);
-int stringSizeEqualOrLessToSearch = 3;
-string[] newArrayOfStrings = CopyToNewStringsArrayWithSizeEqualOrLessNeeded(stringArray, stringSizeEqualOrLessToSearch);
-PrintTwoArraysOfStrings(stringArray, newArrayOfStrings);
+string[] initialStringsArray = InputStringFromConsole(separators);
+int stringSizeParameter = 3;
+string[] resultStringsArray = CopyToNewArrayStringsWithSizeEqualOrLessNeeded(initialStringsArray, stringSizeParameter);
+PrintTwoArraysOfStrings(initialStringsArray, resultStringsArray);
 
 Console.WriteLine();
