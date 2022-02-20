@@ -1,4 +1,12 @@
-﻿void PrintArrayOfStrings(string[] arrayOfStrings)
+﻿string[] InputStringFromConsole(char[] separators)
+{
+    string inputStr = Console.ReadLine() ?? String.Empty;
+    string[] stringArray = inputStr.Split( separators , StringSplitOptions.RemoveEmptyEntries);
+    Console.Clear();
+    return stringArray;
+}
+
+void PrintArrayOfStrings(string[] arrayOfStrings)
 {
     Console.Write("[");
     for (int i = 0; i < arrayOfStrings.Length; i++)
@@ -51,7 +59,9 @@ string[] CopyToNewStringsArrayWithSizeEqualOrLessNeeded(string[] arrayOfStrings,
 
 Console.Clear();
 
-string[] stringArray = ;
+Console.WriteLine("Input words through spaces for analizing text:");
+char[] separators = {' '};
+string[] stringArray = InputStringFromConsole(separators);
 int stringSizeEqualOrLessToSearch = 3;
 string[] newArrayOfStrings = CopyToNewStringsArrayWithSizeEqualOrLessNeeded(stringArray, stringSizeEqualOrLessToSearch);
 PrintTwoArraysOfStrings(stringArray, newArrayOfStrings);
