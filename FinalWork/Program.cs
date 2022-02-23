@@ -23,9 +23,9 @@ void PrintTwoStringsArray(string[] initialStringsArray, string[] resultStringsAr
 int CalcStringsNumberWithSizeEqualOrLessNeeded(string[] arrayOfStrings, int sizeOfString)
 {
     int numberOfStrings = 0;
-    for (int i = 0; i < arrayOfStrings.Length; i++)
+    foreach (var currentString in arrayOfStrings)
     {
-        if (arrayOfStrings[i].Length <= sizeOfString)
+        if (currentString.Length <= sizeOfString)
         {
             numberOfStrings++;
         }
