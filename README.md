@@ -102,3 +102,5 @@ _Примеры результатов выполнения программы �
 ![Блок схема первой версии](https://github.com/CovChEGG/FirstFinalWork/blob/main/BlockDiagrammV1.png)
 
 [Блок схема первой версии в новом окне](https://github.com/CovChEGG/FirstFinalWork/blob/main/BlockDiagrammV1.png)
+
+[Исходный код первой версии](https://github.com/CovChEGG/FirstFinalWork/blob/main/FinalWork/Program.cs)
